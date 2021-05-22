@@ -11,6 +11,22 @@
     padding: 0 2%;
 }
 
+.w50{
+    width: 50%;
+    float: left;
+}
+
+#inverter {
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+.center {
+    text-align: center;
+}
+
 .clear {
     clear: both;
 }
@@ -233,5 +249,78 @@ section.about-team > .container {
 
 section.subscribe{
     background: #8257E6;
-    padding: 10px 0;
+    padding: 20px 0;
+}
+
+section.subscribe > .container {
+    margin: auto;
+}
+
+.subscribe-text {
+    font-size: 25px;
+    font-weight: 400;
+}
+
+.wrapper {
+    /*This part is important for centering*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .typing-demo {
+    width: 24ch;
+    animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+    font-family: monospace;
+  }
+  
+  @keyframes typing {
+    from {
+      width: 0
+    }
+  }
+      
+  @keyframes blink {
+    50% {
+      border-color: transparent
+    }
+  }
+
+.subscribe-text i {
+    color: #3a02be;
+}
+
+.form-subscribe {
+    width: 100%;
+}
+
+.form-subscribe input[type=text]{
+    width: 75%;
+    height: 30px;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    display: inline-block;
+
+    border-radius: 5px 0  0 5px ;
+}
+
+.form-subscribe input[type=submit]{
+    width: 120px;
+    height: 30px;
+    background: #553899;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    display: inline-block;
+    border-radius: 0 5px 5px 0;
+
+    transition: filter 0.6s;
+}
+
+.form-subscribe input[type=submit]:hover{
+    filter: brightness(.7);
 }
