@@ -39,11 +39,6 @@ nav.menu-desktop ul {
     top: 8px;
 }
 
-nav.menu-desktop li.selected {
-    font-weight: normal;
-    text-decoration: underline;
-}
-
 nav.menu-desktop li {
     padding: 0 10px;
     font-weight: lighter;
@@ -53,10 +48,38 @@ nav.menu-desktop li {
 nav.menu-desktop a {
     color: #000;
     text-decoration: none;
+    letter-spacing: 1px;
+
+    display: inline-block;
+    position: relative;
 }
 
-nav.menu-desktop a:hover {
-    text-decoration: underline;
+a:after {    
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: #8257E6;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+  }
+  a:hover:after { 
+    width: 100%; 
+    left: 0; 
+  }
+
+  nav.menu-desktop li.selected a {
+    font-weight: normal;
+    color: #8257E6;
+}
+
+  nav.menu-desktop li.selected  a:after{
+    background: #8257E6;
+    width: 100%;
+    left: 0;
 }
 
 
@@ -145,4 +168,70 @@ section.diferentials {
     color: #404042;
     font-weight: lighter;
     font-size:16px;
+}
+
+
+/* ===== About Team ===== */
+
+section.about-team{
+    padding: 30px 0;
+    background: rgb(225, 225, 225);
+}
+
+section.about-team > .container {
+    display: flex;
+}
+
+.team-container{
+    width: 50%;
+}
+
+.box-avatar {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.img-avatar{
+    width: auto;
+}
+
+.img-avatar img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.description-avatar {
+    width: auto;
+    padding: 0 10px;
+}
+
+.description-avatar h3 {
+    color: #333;
+    font-size: 20px;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.description-avatar p {
+    color: #666;
+}
+
+.about-container{
+    width: 50%;
+}
+
+.about-container p {
+    color: black;
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+
+/* ===== Subscribe ===== */
+
+section.subscribe{
+    background: #8257E6;
+    padding: 10px 0;
 }
