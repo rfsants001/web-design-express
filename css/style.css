@@ -2,8 +2,17 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
+
+
+
+body{
+    background: #121214;
+    height: 100vh;
+}
+
+/* ===== Auxiliary Class ===== */
 
 .container {
     max-width: 1280px;
@@ -31,10 +40,59 @@
     clear: both;
 }
 
+/* ===== Keyframes ===== */
+
+@keyframes typing {
+    from {
+      width: 0
+    }
+  }
+      
+  @keyframes blink {
+    50% {
+      border-color: transparent
+    }
+  }
+
 /* ===== Header ===== */
 
+.bg-image{
+    background:  url("../images/black-purple-bubble.jpg") no-repeat ;
+    background-attachment: fixed;
+    background-size: 100%;
+}
+
+.overlay {
+    max-width: 1280px;
+    margin: 0 auto;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+
+    position: relative;
+    background: inherit;
+}
+
+.overlay:before{
+    content:"";
+    position: absolute;
+    background: inherit;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.329);
+    filter: blur(2px);
+}
+
 header {
-    padding:8px 0;
+    padding:20px 30px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+header > .container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .logo {
@@ -44,10 +102,12 @@ header {
 .logo h2{
     font-weight: normal;
     font-size: 23px;
+
+    color: #fff;
 }
 
 nav.menu-desktop {
-    float: right;
+    margin: 0 auto;
 }
 
 nav.menu-desktop ul {
@@ -57,17 +117,24 @@ nav.menu-desktop ul {
 
 nav.menu-desktop li {
     padding: 0 10px;
-    font-weight: lighter;
+    font-weight: 300;
     display: inline-block;
 }
 
 nav.menu-desktop a {
-    color: #000;
+    color: #fff;
+    filter: brightness(0.8);
     text-decoration: none;
     letter-spacing: 1px;
 
     display: inline-block;
     position: relative;
+
+    transition: filter 0.5s;
+}
+
+nav.menu-desktop a:hover {
+    filter: brightness(1);
 }
 
 a:after {    
@@ -78,22 +145,24 @@ a:after {
     height: 2px;
     left: 50%;
     position: absolute;
-    background: #8257E6;
+    background: #FE8446;
     transition: width 0.3s ease 0s, left 0.3s ease 0s;
     width: 0;
   }
   a:hover:after { 
     width: 100%; 
     left: 0; 
+    filter: brightness(1);
   }
 
   nav.menu-desktop li.selected a {
     font-weight: normal;
-    color: #8257E6;
+    color: #FE8446;
+    filter: brightness(1);
 }
 
   nav.menu-desktop li.selected  a:after{
-    background: #8257E6;
+    background: #FE8446;
     width: 100%;
     left: 0;
 }
@@ -105,9 +174,6 @@ section.main-bg {
     position: relative;
     width: 100%;
     padding: 140px 0 200px 0;
-    background:  url("../images/forest-bg.jpg") no-repeat ;
-    background-position: center;
-    background-size: cover;
     text-align: center;
 }
 
@@ -116,22 +182,48 @@ section.main-bg > .container {
     z-index: 1;
 } 
 
-.overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.7);
-    left: 0;
-    top: 0;
+.hidden {
+    opacity:0;
+  }
+  .console-container {
+    font-size:4em;
+    text-align:center;
+    height:200px;
+    width:600px;
+    display:block;
+    position:absolute;
+    color:white;
+    top:-100%;
+    bottom:0;
+    left:0;
+    right:0;
+    margin:auto;
+  }
+
+#text {
+    font-weight: 700;
+    font-size: 45px;
 }
 
-section.main-bg h2 {
-    color: #8257E6;
-    font-weight: 600;
-    font-size: 30px;
+#estatic-text{
+    font-weight: 700;
+    font-size: 45px;
+    color: #FE8446;
 }
+
+
+  .console-underscore {
+     display:inline-block;
+    position:relative;
+    top:-0.14em;
+    left:10px;
+    font-size: 50px;
+  }
+
+
 
 section.main-bg p {
+    padding: 0 60px;
     text-align: left;
     color: #fff;
     font-size: 15px;
@@ -142,13 +234,17 @@ section.main-bg p {
 
 section.diferentials {
     padding: 30px 0;
+    box-shadow: 1rem 0 1rem 0 rgba(0, 0, 0, 0.2);
+    width: 100%;
     text-align: center;
+    position: relative;
+    z-index: 1;
 }
 
 .line-text {
     position: relative;
     display: inline-block;
-    color: #8257E6;
+    color: #FE8446;
 }
 
 .line-text > div {
@@ -157,7 +253,7 @@ section.diferentials {
     top: 0;
     width: 50%;
     height: 3px;
-    background: #8257E6;
+    background: #FE8446;
 }
 
 .line-text h2 {
@@ -166,22 +262,33 @@ section.diferentials {
 }
 
 .icons-diferentials {
-    margin-top: 30px;
+    margin: 30px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8%;
+}
+
+.bg-gradient-icon{
+    padding: 5px;
+
+    border-radius: 8px;
+    box-shadow: 1rem 0 1rem 0 rgba(0, 0, 0, 0.2);
+    background-image: linear-gradient(to top, transparent, rgba(107, 104, 104, 0.3));
 }
 
 .box-single-icon {
-    float: left;
-    width: 33.3%;
-    padding: 0 15px;
+    padding: 10px;
+    margin: 0 40px;
 }
 
 .box-single-icon h2 {
-    color: #171718;
+    color: rgb(170, 170, 170);
     font-size: 40px;
 }
 
 .box-single-icon p {
-    color: #404042;
+    color: rgb(228, 226, 226);
     font-weight: lighter;
     font-size:16px;
 }
@@ -191,7 +298,10 @@ section.diferentials {
 
 section.about-team{
     padding: 30px 0;
-    background: rgb(225, 225, 225);
+    box-shadow: 1rem 0 1rem 0 rgba(0, 0, 0, 0.2);
+    background-image: linear-gradient(to top, rgba(107, 104, 104, 0.1), rgba(107, 104, 104, 0.3));
+    position: relative;
+    z-index: 1;
 }
 
 section.about-team > .container {
@@ -224,14 +334,17 @@ section.about-team > .container {
 }
 
 .description-avatar h3 {
-    color: #333;
+    color: #ccc;
+    filter: brightness(0.8);
     font-size: 20px;
     font-weight: 400;
     font-style: italic;
 }
 
 .description-avatar p {
-    color: #666;
+    color: #fdfdfd7d;
+    font-style: italic;
+    font-weight: lighter;
 }
 
 .about-container{
@@ -239,7 +352,7 @@ section.about-team > .container {
 }
 
 .about-container p {
-    color: black;
+    color: #fdfdfd7d;
     font-size: 15px;
     margin-top: 10px;
 }
@@ -248,8 +361,11 @@ section.about-team > .container {
 /* ===== Subscribe ===== */
 
 section.subscribe{
-    background: #8257E6;
+    box-shadow: 1rem 0 1rem 0 rgba(0, 0, 0, 0.2);
+    background-image: linear-gradient(to bottom right, rgba(107, 104, 104, 0.1), rgba(130, 87, 230, 0.4));
     padding: 20px 0;
+    position: relative;
+    z-index: 1;
 }
 
 section.subscribe > .container {
@@ -258,7 +374,8 @@ section.subscribe > .container {
 
 .subscribe-text {
     font-size: 25px;
-    font-weight: 400;
+    font-weight: 500;
+    color: #fdfdfd7d ;
 }
 
 .wrapper {
@@ -276,21 +393,9 @@ section.subscribe > .container {
     border-right: 3px solid;
     font-family: monospace;
   }
-  
-  @keyframes typing {
-    from {
-      width: 0
-    }
-  }
-      
-  @keyframes blink {
-    50% {
-      border-color: transparent
-    }
-  }
 
 .subscribe-text i {
-    color: #3a02be;
+    color: #8257e6bb;
 }
 
 .form-subscribe {
@@ -300,8 +405,9 @@ section.subscribe > .container {
 .form-subscribe input[type=text]{
     width: 75%;
     height: 30px;
-    background: white;
-    border: 1px solid #ccc;
+    background: rgba(255, 255, 255, 0.589);
+    border: none;
+    box-shadow: 1rem  rgba(0, 0, 0, 0.9);
     padding: 5px 10px;
     display: inline-block;
 
@@ -311,16 +417,72 @@ section.subscribe > .container {
 .form-subscribe input[type=submit]{
     width: 120px;
     height: 30px;
-    background: #553899;
+    background: #553899a4;
+    box-shadow: 1px 2px 1rem 0 rgba(0, 0, 0, 0.5);
     color: #fff;
     cursor: pointer;
     border: none;
     display: inline-block;
     border-radius: 0 5px 5px 0;
 
-    transition: filter 0.6s;
+    transition: all 0.6s;
 }
 
 .form-subscribe input[type=submit]:hover{
     filter: brightness(.7);
+    box-shadow: 1px 2px 1rem 0 rgba(0, 0, 0, 0.5);
+}
+
+
+/* ===== Section Cards ===== */
+
+section.cards {
+    padding: 30px 0;
+    position:relative;
+    z-index: 1;
+}
+
+.single-card{
+    width: 33.3%;
+    float: left;
+    padding: 50px;
+
+   
+}
+
+.single-card .bg-gradient{
+    padding: 5px;
+
+    border-radius: 8px;
+    box-shadow: 1rem 0 1rem 0 rgba(0, 0, 0, 0.2);
+    background-image: linear-gradient(to top, transparent, rgba(107, 104, 104, 0.3));
+
+    cursor: pointer;
+}
+
+.single-card img {
+    width: 100%;
+    max-height: 170px;
+
+    border-radius: 8px 8px 0 0;
+}
+
+.card-content{
+    padding: 10px 15px;
+}
+
+.single-card h3 {
+    margin-top: 5px;
+    font-weight: 500;
+    font-size: 20px;
+
+    color: #E1E1E6;
+}
+
+.single-card p {
+    margin-top: 10px;
+    font-weight: lighter;
+    font-size: 16px;
+    color: #c4c4c9;
+    padding-bottom: 10px;
 }
