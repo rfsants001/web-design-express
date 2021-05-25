@@ -20,8 +20,19 @@ body{
     padding: 0 2%;
 }
 
+.w30 {
+    width: 30%;
+    float: left;
+    padding: 0 50px;
+}
+
 .w50{
     width: 50%;
+    float: left;
+}
+
+.w70{
+    width: 70%;
     float: left;
 }
 
@@ -40,48 +51,34 @@ body{
     clear: both;
 }
 
+
 /* ===== Keyframes ===== */
 
-@keyframes typing {
-    from {
-      width: 0
-    }
-  }
-      
-  @keyframes blink {
-    50% {
-      border-color: transparent
-    }
-  }
+@keyframes blink{
+    to { opacity: .0; }
+}
 
 /* ===== Header ===== */
 
 .bg-image{
     background:  url("../images/black-purple-bubble.jpg") no-repeat ;
     background-attachment: fixed;
+    padding: 15px 0;
     background-size: 100%;
 }
 
 .overlay {
     max-width: 1280px;
-    margin: 0 auto;
-    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
-
-    position: relative;
-    background: inherit;
+    margin: 10px auto;
+    background: rgba( 248, 244, 244, 0.10 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 0.0px );
+    -webkit-backdrop-filter: blur( 0.0px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
-.overlay:before{
-    content:"";
-    position: absolute;
-    background: inherit;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.329);
-    filter: blur(2px);
-}
+
 
 header {
     padding:20px 30px;
@@ -136,7 +133,7 @@ nav.menu-desktop a:hover {
     filter: brightness(1);
 }
 
-a:after {    
+nav.menu-desktop a:after {    
     background: none repeat scroll 0 0 transparent;
     bottom: 0;
     content: "";
@@ -148,7 +145,7 @@ a:after {
     transition: width 0.3s ease 0s, left 0.3s ease 0s;
     width: 0;
   }
-  a:hover:after { 
+  nav.menu-desktop a:hover:after { 
     width: 100%; 
     left: 0; 
     filter: brightness(1);
@@ -377,21 +374,16 @@ section.subscribe > .container {
     color: #fdfdfd7d ;
 }
 
-.wrapper {
-    /*This part is important for centering*/
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+.subscribe-title {
+    font-size: 25px;
+    font-weight: lighter;
+    color: #fdfdfd7d ;
+}
   
-  .typing-demo {
-    width: 24ch;
-    animation: typing 2s steps(24), blink .5s step-end infinite alternate;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 3px solid;
-    font-family: monospace;
-  }
+.blink {
+    animation: blink 0.5s infinite;
+    font-weight: bold;
+}
 
 .subscribe-text i {
     color: #8257e6bb;
@@ -484,4 +476,106 @@ section.cards {
     font-size: 16px;
     color: #c4c4c9;
     padding-bottom: 10px;
+}
+
+
+/* ===== Sub-Footer ====== */
+
+footer.sub-footer {
+    padding: 20px 0;
+    color: #fff;
+    box-shadow: 1rem 0 1rem 0 rgba(0, 0, 0, 0.2);
+}
+
+footer.sub-footer > .container {
+    max-width: 1000px;
+}
+
+footer.sub-footer h2 {
+    font-weight: normal;
+    font-size: 23px;
+}
+
+footer.sub-footer p {
+    margin-top: 8px;
+    font-weight: lighter;
+}
+
+footer.sub-footer a {
+    display: block;
+    color: #fff;
+}
+
+.social-icons {
+    float: right;
+}
+
+.social-icons ul {
+    position: relative;
+    display: flex;
+    margin-top: 10px;
+}
+
+.social-icons ul li {
+    position: relative;
+    list-style: none;
+    cursor: pointer;
+}
+
+.social-icons ul li:nth-child(2){
+    margin: 0 25px;
+}
+
+
+footer.sub-footer .group-icons a {
+    display: inline-block;
+    text-decoration: none;
+}
+
+footer.sub-footer .group-icons a .fa {
+    font-size: 30px;
+    color: rgb(75, 74, 74);
+}
+
+.social-icons ul li::before{
+    font-family: FontAwesome;
+    position: absolute;
+    top: -2px;
+    left: 0;
+    font-size: 31px;
+    height: 0;
+    overflow: hidden;
+    transition: 0.5s ease-in-out;
+}
+
+.social-icons ul li:nth-child(1)::before{
+    content: "\f08c";
+    color: #1da1f2;
+    border-bottom: 3px solid #1da1f2;
+}
+
+.social-icons ul li:nth-child(2)::before{
+    content: "\f092";
+    color: #6e5494;
+    border-bottom: 3px solid #6e5494;
+}
+
+.social-icons ul li:nth-child(3)::before{
+    content: "\f16d";
+    color: #e1306c;
+    border-bottom: 3px solid #e1306c;
+}
+
+.social-icons ul li:hover::before {
+    height: 100%;
+}
+
+
+footer.main-footer{
+    text-align: center;
+    color: #fff;
+    padding: 15px 0;
+
+    background: #06050a67;
+    box-shadow: 1rem 0 1rem 0 rgba(0, 0, 0, 0.2);
 }
